@@ -1,4 +1,4 @@
-import { dirname, isAbsolute, relative } from "jsr:@std/path";
+import { dirname, isAbsolute, relative } from "@std/path";
 import { flatten } from "../core/flatten.ts";
 import type { FsLayout } from "../core/types.ts";
 
@@ -7,10 +7,15 @@ interface GenFsOptions {
   cleanup?: boolean;
 }
 
+export interface GenFsResult {
+  [Symbol.asyncDispose]: () => Promise<void>;
+  dispose: () => Promise<void>;
+}
+
 export async function genFs(
   layout: FsLayout,
   { rootDir, cleanup = false }: GenFsOptions,
-) {
+): Promise<GenFsResult> {
   if (!isAbsolute(rootDir)) {
     rootDir = relative(Deno.cwd(), rootDir);
   }

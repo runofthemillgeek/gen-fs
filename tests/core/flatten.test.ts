@@ -1,7 +1,7 @@
-import { assertEquals } from "jsr:@std/assert";
+import { assertEquals } from "@std/assert";
 
-import { flatten } from "../../core/flatten.ts";
-import type { FsLayout } from "../../core/types.ts";
+import { flatten } from "@/core/flatten.ts";
+import type { FsLayout } from "@/core/types.ts";
 
 Deno.test("flattens nested layout structure", () => {
   const layout: FsLayout = {

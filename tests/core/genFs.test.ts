@@ -1,7 +1,8 @@
-import type { FsLayout } from "@/core/types.ts";
-import { genFs } from "@/core/genFs.ts";
 import { assert } from "@std/assert/assert";
 import { assertEquals } from "@std/assert/equals";
+
+import type { FsLayout } from "@/core/types.ts";
+import { genFs } from "@/core/genFs.ts";
 
 Deno.test("creates files/folders at rootDir using given layout", async () => {
   const rootDir = await Deno.makeTempDir({ "prefix": "genfs_test_" });

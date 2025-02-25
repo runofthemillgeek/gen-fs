@@ -1,5 +1,5 @@
-import { genFs } from "../../core/genFs.ts";
-import { genTmpFs } from "../../core/genTmpFs.ts";
+import { genFs } from "@/core/genFs.ts";
+import { genTmpFs } from "@/core/genTmpFs.ts";
 
 import { assertSpyCall, returnsNext, spy, stub } from "jsr:@std/testing/mock";
 
