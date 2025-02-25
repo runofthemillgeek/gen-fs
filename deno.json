@@ -1,10 +1,18 @@
 {
   "name": "@runofthemillgeek/gen-fs",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0-alpha.1",
+  "exports": "./mod.ts",
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "dev": "deno test -RW --watch",
+    "coverage": "deno test -RW --coverage && deno coverage --html",
+    "coverage:serve": {
+      "command": "cd coverage/html && deno run -RNS jsr:@std/http/file-server",
+      "dependencies": ["coverage"]
+    }
   },
+  "license": "MIT",
   "imports": {
+    "@/": "./",
     "@std/assert": "jsr:@std/assert@1"
   }
 }
