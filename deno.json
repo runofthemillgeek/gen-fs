@@ -1,6 +1,6 @@
 {
   "name": "@runofthemillgeek/gen-fs",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "exports": "./mod.ts",
   "tasks": {
     "dev": "deno test -RW --watch",
