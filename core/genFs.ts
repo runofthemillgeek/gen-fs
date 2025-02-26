@@ -5,6 +5,7 @@ import type { FsLayout } from "../core/types.ts";
 interface GenFsOptions {
   rootDir: string;
   cleanup?: boolean;
+  chdir?: boolean;
 }
 
 export interface GenFsResult {
@@ -14,10 +15,12 @@ export interface GenFsResult {
 
 export async function genFs(
   layout: FsLayout,
-  { rootDir, cleanup = false }: GenFsOptions,
+  { rootDir, cleanup = false, chdir = false }: GenFsOptions,
 ): Promise<GenFsResult> {
+  const originalCwd = Deno.cwd();
+
   if (!isAbsolute(rootDir)) {
-    rootDir = relative(Deno.cwd(), rootDir);
+    rootDir = relative(originalCwd, rootDir);
   }
 
   await Deno.mkdir(rootDir, { recursive: true });
@@ -33,7 +36,15 @@ export async function genFs(
     }
   }
 
+  if (chdir) {
+    await Deno.chdir(rootDir);
+  }
+
   async function dispose() {
+    if (chdir) {
+      await Deno.chdir(originalCwd);
+    }
+
     if (cleanup) {
       await Deno.remove(rootDir, { recursive: true });
     }
