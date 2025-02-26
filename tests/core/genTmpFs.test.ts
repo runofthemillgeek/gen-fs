@@ -1,7 +1,7 @@
 import type { genFs } from "@/core/genFs.ts";
 import { genTmpFs } from "@/core/genTmpFs.ts";
 
-import { assertSpyCall, returnsNext, spy, stub } from "jsr:@std/testing/mock";
+import { assertSpyCall, returnsNext, spy, stub } from "@std/testing/mock";
 
 Deno.test("calls genFs with a new tmp dir", async () => {
   const genFsSpy = spy<
