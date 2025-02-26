@@ -20,6 +20,7 @@ Deno.test("calls genFs with a new tmp dir", async () => {
   assertSpyCall(makeTmpDirStub, 0);
   assertSpyCall(genFsSpy, 0, {
     args: [{}, {
+      chdir: false,
       rootDir: "/tmp/foo",
       cleanup: false,
     }],

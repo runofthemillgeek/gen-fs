@@ -1,0 +1,14 @@
+pre-commit:
+  commands:
+    lint:
+      glob: "*.ts"
+      run: deno lint {staged_files}
+    fmt:
+      glob: "*.{ts,md,yaml,json}"
+      run: deno fmt --check {staged_files}
+    typecheck:
+      glob: "*.ts"
+      run: deno check {staged_files}
+    test:
+      glob: "*.ts"
+      run: deno test -RW {staged_files}
