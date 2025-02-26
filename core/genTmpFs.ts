@@ -3,6 +3,7 @@ import type { FsLayout } from "./types.ts";
 
 interface GenTmpFsOptions {
   cleanup?: boolean;
+  chdir?: boolean;
 }
 
 type GenTmpFsResult = GenFsResult & {
@@ -11,7 +12,7 @@ type GenTmpFsResult = GenFsResult & {
 
 export async function genTmpFs(
   layout: FsLayout,
-  { cleanup = true }: GenTmpFsOptions = {},
+  { cleanup = true, chdir = false }: GenTmpFsOptions = {},
   genFsFunc = genFs,
 ): Promise<GenTmpFsResult> {
   const tmpDir = await Deno.makeTempDir({ prefix: "gen_fs_" });
@@ -19,6 +20,7 @@ export async function genTmpFs(
   const genFsResource = await genFsFunc(layout, {
     rootDir: tmpDir,
     cleanup,
+    chdir,
   });
 
   return {
