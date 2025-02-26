@@ -72,6 +72,7 @@ Deno.test("my test", async () => {
 
 - [ ] Add documentation via JSDoc comments
 - [ ] Add more test cases
+- [ ] Make package compatible with node/bun
 - [ ] Publish to JSR and npm
 - [ ] Chores
   - [ ] Add git hooks to fmt/lint check
