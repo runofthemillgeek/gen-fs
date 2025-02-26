@@ -2,8 +2,10 @@
 
 Library functions to seamlessly generate directories and files at the specified
 path using a JavaScript object that maps to the desired filesystem tree.
-Includes support for the [ES Explicit Resource Management](https://github.com/tc39/proposal-explicit-resource-management) spec and [`using`
-keyword](https://www.totaltypescript.com/typescript-5-2-new-keyword-using).
+Includes support for the
+[ES Explicit Resource Management](https://github.com/tc39/proposal-explicit-resource-management)
+spec and
+[`using` keyword](https://www.totaltypescript.com/typescript-5-2-new-keyword-using).
 
 ## Examples
 
